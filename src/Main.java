@@ -11,7 +11,12 @@ public class Main {
         System.out.println("Multiplication: "+ (a*b));
     }
     public static void division(double a, double b){
-        System.out.println("Division: "+ (a/b));
+        if(b!=0){
+            System.out.println("Division: "+ (a/b));
+        }
+        else{
+            System.out.println("Please Enter a Non-Zero Number.");
+        }
     }
     public static void modulo(double a, double b){
         System.out.println("Modulo: "+ (a%b));
