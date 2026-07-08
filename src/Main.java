@@ -1,6 +1,22 @@
 import java.util.Scanner;
 
 public class Main {
+    public static double getNumber(Scanner scn){
+        System.out.println("Enter Number: ");
+        return scn.nextDouble();
+    }
+
+    public static double[] get2Numbers(Scanner scn){
+        double[] numbers = new double[2];
+
+        System.out.println("Enter 1st Number: ");
+        numbers[0] = scn.nextDouble();
+        
+        System.out.println("Enter 2nd Number: ");
+        numbers[1] = scn.nextDouble();
+
+        return numbers;
+    }
     public static void addition(double a, double b){
         System.out.println("Addition: "+ (a+b));
     }
@@ -19,7 +35,12 @@ public class Main {
         }
     }
     public static void modulo(double a, double b){
-        System.out.println("Modulo: "+ (a%b));
+        if(b!=0){
+            System.out.println("Modulo: "+ (a%b));
+        }
+        else{
+            System.out.println("Please Enter a Non-Zero Number.");
+        }
     }
     public static void power(double a, double b){
         System.out.println("Power: "+ Math.pow(a,b));
@@ -39,14 +60,14 @@ public class Main {
     public static void floor(double n){
         System.out.println("Floor: "+ Math.floor(n));
     }
-    public static void factorial(double n){
+    public static void factorial(int n){
         int fact = 1;
         for(int i =1;i<=n;i++){
             fact*=i;
         }
         System.out.println("Factorial: "+fact);
     }
-    public static void evenOddCheck(double n){
+    public static void evenOddCheck(int n){
         System.out.println((n%2 ==0)? "Even Number": "Odd Number");
     }
     public static void maximum(double a, double b){
@@ -56,7 +77,12 @@ public class Main {
         System.out.println("Minimum: "+ Math.min(a,b));
     }
     public static void percentage(double a, double b){
-        System.out.println("Percentage: "+((a/b)*100) +"%");
+        if(b!=0){
+            System.out.println("Percentage: "+((a/b)*100) +"%");
+        }
+        else{
+            System.out.println("Please Enter a Non-Zero Number.");
+        }
     }
 
 
@@ -86,105 +112,72 @@ public class Main {
             System.out.println("17. Exit");
 
             choice = scn.nextInt();
-            double a,b,n;
+            double[] numbers = new double[2];
+            double n;
             switch(choice){
                 case 1:
-                    System.out.println("Enter 1st Number: ");
-                    a = scn.nextInt();
-                    System.out.println("Enter 2nd Number: ");
-                    b = scn.nextInt();
-                    addition(a,b);
+                    numbers = get2Numbers(scn);
+                    addition(numbers[0],numbers[1]);
                     break;
                 case 2:
-                    System.out.println("Enter 1st Number: ");
-                    a = scn.nextInt();
-                    System.out.println("Enter 2nd Number: ");
-                    b = scn.nextInt();
-                    subtraction(a,b);
+                    numbers = get2Numbers(scn);
+                    subtraction(numbers[0],numbers[1]);
                     break;
                 case 3:
-                    System.out.println("Enter 1st Number: ");
-                    a = scn.nextInt();
-                    System.out.println("Enter 2nd Number: ");
-                    b = scn.nextInt();
-                    multiplication(a,b);
+                    numbers = get2Numbers(scn);
+                    multiplication(numbers[0],numbers[1]);
                     break;
                 case 4:
-                    System.out.println("Enter 1st Number: ");
-                    a = scn.nextInt();
-                    System.out.println("Enter 2nd Number: ");
-                    b = scn.nextInt();
-                    division(a,b);
+                    numbers = get2Numbers(scn);
+                    division(numbers[0],numbers[1]);
                     break;
                 case 5:
-                    System.out.println("Enter 1st Number: ");
-                    a = scn.nextInt();
-                    System.out.println("Enter 2nd Number: ");
-                    b = scn.nextInt();
-                    modulo(a,b);
+                    numbers = get2Numbers(scn);
+                    modulo(numbers[0],numbers[1]);
                     break;
                 case 6:
-                    System.out.println("Enter Base Number: ");
-                    a = scn.nextInt();
-                    System.out.println("Enter Power Number: ");
-                    b = scn.nextInt();
-                    power(a,b);
+                    numbers = get2Numbers(scn);
+                    power(numbers[0],numbers[1]);
                     break;
                 case 7:
-                    System.out.println("Enter Number: ");
-                    n = scn.nextInt();
+                    n = getNumber(scn);
                     squareRoot(n);
                     break;
                 case 8:
-                    System.out.println("Enter Number: ");
-                    n = scn.nextInt();
+                    n = getNumber(scn);
                     absolute(n);
                     break;
                 case 9:
-                    System.out.println("Enter Number: ");
-                    n = scn.nextDouble();
+                    n = getNumber(scn);
                     round(n);
                     break;
                 case 10:
-                    System.out.println("Enter Number: ");
-                    n = scn.nextDouble();
+                    n = getNumber(scn);
                     ceil(n);
                     break;
                 case 11:
-                    System.out.println("Enter Number: ");
-                    n = scn.nextDouble();
+                    n = getNumber(scn);
                     floor(n);
                     break;
                 case 12:
-                    System.out.println("Enter Number: ");
-                    n = scn.nextInt();
-                    factorial(n);
+                    n = getNumber(scn);
+                    factorial((int)n);
                     break;
                 case 13:
-                    System.out.println("Enter Number: ");
-                    n = scn.nextInt();
-                    evenOddCheck(n);
+                    n = getNumber(scn);
+                    evenOddCheck((int)n);
                     break;
                 case 14:
-                    System.out.println("Enter 1st Number: ");
-                    a = scn.nextInt();
-                    System.out.println("Enter 2nd Number: ");
-                    b = scn.nextInt();
-                    maximum(a,b);
+                    numbers = get2Numbers(scn);
+                    maximum(numbers[0],numbers[1]);
                     break;
                 case 15:
-                    System.out.println("Enter 1st Number: ");
-                    a = scn.nextInt();
-                    System.out.println("Enter 2nd Number: ");
-                    b = scn.nextInt();
-                    minimum(a,b);
+                    numbers = get2Numbers(scn);
+                    minimum(numbers[0],numbers[1]);
                     break;
                 case 16:
-                    System.out.println("Enter Obtained: ");
-                    a = scn.nextInt();
-                    System.out.println("Enter Total: ");
-                    b = scn.nextInt();
-                    percentage(a,b);
+                    numbers = get2Numbers(scn);
+                    percentage(numbers[0],numbers[1]);
                     break;
                 case 17:
                     System.out.println("Thank you for using Calculator .\nGood Bye !");
