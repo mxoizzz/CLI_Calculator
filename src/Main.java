@@ -181,9 +181,10 @@ public class Main {
                     break;
                 case 17:
                     System.out.println("Thank you for using Calculator .\nGood Bye !");
+                    scn.close();
                     return;
                 default:
-                    System.out.println("Invalid Cloice! \nPlease Enter a number between 1 - 17");
+                    System.out.println("Invalid Choice! \nPlease Enter a number between 1 - 17");
             }
         }
     }
